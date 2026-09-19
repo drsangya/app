@@ -23,7 +23,7 @@ Sangya Tyagi (She/Her) — PhD candidate, University of Westminster (Generative 
 - Resume: real content — experience timeline (Westminster, Political Sampark, Matrix, UT Arlington), education, certifications (AFHEA etc.), skills cloud, 2021 UTA publication.
 - Research: PhD overview (CAMRI), 3 research-area stalls, conferences (Paris 2025 poster, Málaga 2024 talk), publication, methods toolkit.
 - Alter Ego: `/alter-ego/:type` galleries (art/photography/illustrations), 6 ornamental placeholder frames each, lightbox modal, gallery switcher, curator note.
-- Contact: working enquiry form (POST `/api/enquiries` → MongoDB `enquiries`, validated by Pydantic + EmailStr), subject pills, sonner toasts, social links, live London/New Delhi clocks.
+- Contact: enquiry form now posts DIRECTLY to Formspree (`VITE_FORMSPREE_ENDPOINT` in `frontend/.env`, placeholder `your_form_id` — Sangya swaps in her own form ID; JSON POST with `Accept: application/json`, `_gotcha` honeypot, graceful "not configured" toast until set), subject pills, sonner toasts, social links, live London/New Delhi clocks. (FastAPI `/api/enquiries` endpoints remain in the backend but the form no longer uses them — the site is now fully static-host ready, e.g. GitHub Pages.)
 - Backend: `POST /api/enquiries` (201), `GET /api/enquiries`; indexes on `id` + `created_at`.
 - Verified: typecheck clean, backend import OK, curl POST/GET/422 via public URL, browser pass (all tabs, dropdown, lightbox, form submit with toast).
 

@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
-import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { Linkedin, Instagram, Twitter, GraduationCap, Mail, Globe, Send, Clock } from "lucide-react";
-import { apiPost } from "@/lib/api";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -11,14 +9,7 @@ import Marquee from "@/components/Marquee";
 import { AutoBadge, ArchDivider } from "@/components/Ornaments";
 import { Reveal } from "@/components/Reveal";
 
-interface Enquiry {
-  id: string;
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-  created_at: string;
-}
+type FormspreeErrorBody = { errors?: { message?: string }[]; message?: string };
 
 const SUBJECTS = ["Research Collab", "Guest Lecture", "Art Enquiry", "General"];
 
@@ -50,28 +41,49 @@ export default function Contact() {
   const fmt = (tz: string) =>
     new Intl.DateTimeFormat("en-GB", { hour: "2-digit", minute: "2-digit", second: "2-digit", timeZone: tz }).format(now);
 
-  const mutation = useMutation({
-    mutationFn: (body: { name: string; email: string; subject: string; message: string }) =>
-      apiPost<Enquiry>("/enquiries", body),
-    onSuccess: () => {
-      toast.success("Message delivered — शुक्रिया! Sangya will write back soon.");
-      setName("");
-      setEmail("");
-      setMessage("");
-      setSubject(SUBJECTS[0]);
-    },
-    onError: () => {
-      toast.error("The postman lost this one. Please try again.");
-    },
-  });
+  const [gotcha, setGotcha] = useState("");
+  const [sending, setSending] = useState(false);
 
-  const submit = (e: React.FormEvent) => {
+  const endpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT;
+
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !email.trim() || !message.trim()) {
       toast.error("Name, email and message are required.");
       return;
     }
-    mutation.mutate({ name: name.trim(), email: email.trim(), subject, message: message.trim() });
+    if (!endpoint || !/^https:\/\/formspree\.io\/f\//.test(endpoint) || endpoint.includes("your_form_id")) {
+      toast.error("Form not configured yet — the Formspree form ID still needs to be added.");
+      return;
+    }
+    setSending(true);
+    try {
+      const res = await fetch(endpoint, {
+        method: "POST",
+        headers: { Accept: "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          subject,
+          message: message.trim(),
+          _gotcha: gotcha,
+        }),
+      });
+      const body = (await res.json().catch(() => ({}))) as FormspreeErrorBody;
+      if (!res.ok) {
+        const detail = body.errors?.map((x) => x.message).filter(Boolean).join(" ");
+        throw new Error(detail || body.message || `Submission failed (${res.status}).`);
+      }
+      toast.success("Message delivered — शुक्रिया! Sangya will write back soon.");
+      setName("");
+      setEmail("");
+      setMessage("");
+      setSubject(SUBJECTS[0]);
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "The postman lost this one. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -162,14 +174,26 @@ export default function Contact() {
                 />
               </div>
 
+              <div className="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
+                <label htmlFor="contact-gotcha">Leave this field empty</label>
+                <input
+                  id="contact-gotcha"
+                  name="_gotcha"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={gotcha}
+                  onChange={(e) => setGotcha(e.target.value)}
+                />
+              </div>
+
               <Button
                 type="submit"
                 data-testid="contact-submit-button"
-                disabled={mutation.isPending}
+                disabled={sending}
                 className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-none border-2 border-goldleaf bg-marigold px-7 py-6 font-editorial text-sm font-bold uppercase tracking-[0.2em] text-[#1A0609] shadow-[5px_5px_0_#852636] transition-transform duration-300 hover:-translate-y-0.5 hover:bg-goldleaf sm:w-auto"
               >
                 <Send className="h-4 w-4" />
-                {mutation.isPending ? "Posting…" : "Post the Letter"}
+                {sending ? "Posting…" : "Post the Letter"}
               </Button>
             </form>
           </Reveal>
