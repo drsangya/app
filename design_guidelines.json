@@ -1,0 +1,293 @@
+{
+  "theme": "Indian Maximalism (Craft, Kitsch, Heritage & Gen AI Fusion)",
+  "aesthetic_archetype": "Indian Maximalism — Lacquer Red, Turmeric Ochre, Rickshaw Emerald, Rani Pink & Mirror Gold",
+  "archetype_rationale": "Infuses Sangya Tyagi's academic persona (PhD Gen AI & Media researcher) with bold Delhi street aesthetics: Delhi Haat bird's-eye market stalls, auto-rickshaw typography and stripes, swinging jhumka earrings, ornate jali lattice borders, and rich Hindi-English editorial accents.",
+  "typography": {
+    "heading_font": "Playfair Display Variable, 'Playfair Display', serif",
+    "accent_display_font": "Lora Variable, 'Lora', serif",
+    "body_font": "Plus Jakarta Sans Variable, 'Plus Jakarta Sans', sans-serif",
+    "mono_font": "Geist Mono Variable, 'Geist Mono', monospace",
+    "font_imports": [
+      "@import \"@fontsource-variable/playfair-display\";",
+      "@import \"@fontsource-variable/lora\";",
+      "@import \"@fontsource-variable/plus-jakarta-sans\";",
+      "@import \"@fontsource-variable/geist-mono\";"
+    ],
+    "scale_px": {
+      "display": 60,
+      "h1": 48,
+      "h2": 36,
+      "h3": 24,
+      "body": 16,
+      "caption": 14
+    },
+    "typesetting_rules": {
+      "display_headings": "font-serif tracking-tight font-black leading-[1.05] text-amber-100 drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]",
+      "section_headings": "font-serif tracking-tight font-bold text-amber-200 uppercase tracking-wider text-2xl sm:text-3xl lg:text-4xl",
+      "hindi_ornamental_labels": "font-serif tracking-[0.25em] text-xs uppercase font-semibold text-amber-400",
+      "academic_titles": "font-sans font-semibold tracking-tight text-slate-100",
+      "body_copy": "font-sans leading-relaxed text-slate-200 text-base"
+    }
+  },
+  "colors": {
+    "surfaces": [
+      {
+        "name": "page",
+        "kind": "solid",
+        "bg": "#140608",
+        "on_bg": "#FFF8E7",
+        "on_bg_muted": "#E0C8B0",
+        "roles": {
+          "link": "#F59E0B",
+          "error": "#F87171",
+          "success": "#34D399",
+          "gold_accent": "#FBBF24",
+          "rani_pink": "#EC4899",
+          "auto_green": "#10B981"
+        }
+      },
+      {
+        "name": "panel",
+        "kind": "solid",
+        "bg": "#220A0E",
+        "on_bg": "#FFF8E7",
+        "on_bg_muted": "#D6BC9F",
+        "roles": {
+          "border": "#852636",
+          "border_highlight": "#F59E0B",
+          "badge_bg": "#3B0D14"
+        }
+      },
+      {
+        "name": "card_deep",
+        "kind": "solid",
+        "bg": "#2D0D14",
+        "on_bg": "#FFF8E7",
+        "on_bg_muted": "#D4B89B",
+        "roles": {
+          "border": "#A82E40",
+          "tag": "#FDE68A"
+        }
+      },
+      {
+        "name": "hero",
+        "kind": "image",
+        "contrast_against": "#140608",
+        "guarantee": "scrim: linear-gradient(to bottom, rgba(20,6,8,0.75) 0%, rgba(34,10,14,0.92) 80%, rgba(20,6,8,1) 100%)",
+        "on_bg": "#FFFDF5",
+        "on_bg_muted": "#E8D5C4",
+        "roles": {
+          "link": "#FBBF24",
+          "error": "#F87171",
+          "success": "#34D399"
+        }
+      },
+      {
+        "name": "glass_header",
+        "kind": "glass",
+        "contrast_against": "#20080B",
+        "guarantee": "backdrop-blur-xl bg-[#140608]/85 border-b border-[#F59E0B]/30 backdrop-saturate-150",
+        "on_bg": "#FFFDF5",
+        "on_bg_muted": "#E0C8B0"
+      },
+      {
+        "name": "dropdown_menu",
+        "kind": "solid",
+        "bg": "#240A0F",
+        "on_bg": "#FFFDF5",
+        "on_bg_muted": "#D6BC9F",
+        "roles": {
+          "border": "#F59E0B",
+          "hover_bg": "#46141D"
+        }
+      },
+      {
+        "name": "marigold_badge",
+        "kind": "solid",
+        "bg": "#78350F",
+        "on_bg": "#FEF3C7",
+        "on_bg_muted": "#FDE68A"
+      },
+      {
+        "name": "peacock_badge",
+        "kind": "solid",
+        "bg": "#064E3B",
+        "on_bg": "#D1FAE5",
+        "on_bg_muted": "#A7F3D0"
+      },
+      {
+        "name": "rani_badge",
+        "kind": "solid",
+        "bg": "#831843",
+        "on_bg": "#FCE7F3",
+        "on_bg_muted": "#FBCFE8"
+      }
+    ],
+    "accent": "#F59E0B",
+    "on_accent": "#1A0609"
+  },
+  "entry_surfaces": {
+    "/": "split hero with Delhi Haat market street visual & jhumka motif left, Indian-auto kinetic badges and academic positioning right",
+    "/resume": "ornate Indian maximalist academic parchment — credentials header, timeline left, skills & certifications right",
+    "/research": "Delhi Haat grid layout — Gen AI policy papers, conference talks, and interactive media impact breakdown",
+    "/alter-ego/art": "ornamental gold jali framed gallery for physical & mixed-media artwork with modal lightbox preview",
+    "/alter-ego/photography": "ornamental lacquer framed street and culture photography grid with lightbox preview",
+    "/alter-ego/illustrations": "ornamental folk-digital illustration gallery with Indian maximalist framing and detail view",
+    "/contact": "Delhi Post style dual-column — interactive enquiry form left, social links & academic guest lecture booking right"
+  },
+  "visual_enhancers": {
+    "motifs": [
+      "Jhumka (bell-shaped earring with dangling beads) SVG adornment with subtle physics sway",
+      "Delhi Auto-Rickshaw green & yellow safety stripes with retro meter badges ('FARE ON METER')",
+      "Delhi Haat bird's eye geometric stall layout with market street cartographic accents",
+      "Intricate Jali (lattice-work) borders with 1px gold border and scalloped arches",
+      "Mirror-work (Shisha embroidery) reflective circular foil accents that shimmer on mouse move",
+      "Truck art floral flourishes (Genda Phool / Marigolds, Lotus, Peacock feathers)"
+    ],
+    "marquee": {
+      "text": "संग्या त्यागी • SANGYA TYAGI • GENERATIVE AI & MEDIA • UNIVERSITY OF WESTMINSTER • RESEARCHER • AFHEA • ALTER EGO: ART & VISUALS • DELHI HAAT VIBES • AUTO RICKSHAW KINETICS • JHUMKA SWAY • BIRD'S EYE ARCHIVES •",
+      "speed": "slow editorial drift (45s cycle)",
+      "styling": "border-y-2 border-[#F59E0B]/40 bg-[#1D060A] text-[#FDE68A] font-serif text-sm uppercase tracking-[0.2em] py-3"
+    }
+  },
+  "component_structure": {
+    "navigation": {
+      "path": "frontend/src/components/Navbar.tsx",
+      "tabs": [
+        {"id": "home", "label": "Home", "route": "/"},
+        {"id": "resume", "label": "Resume", "route": "/resume"},
+        {"id": "research", "label": "Research", "route": "/research"},
+        {
+          "id": "alter-ego",
+          "label": "Alter Ego",
+          "is_dropdown": true,
+          "items": [
+            {"id": "art", "label": "Art & Painting", "route": "/alter-ego/art", "desc": "Handmade & physical explorations"},
+            {"id": "photography", "label": "Photography", "route": "/alter-ego/photography", "desc": "Urban, Delhi streets, & candid moments"},
+            {"id": "illustrations", "label": "Illustrations", "route": "/alter-ego/illustrations", "desc": "Digital prints, folklore & AI hybrids"}
+          ]
+        },
+        {"id": "contact", "label": "Contact Me", "route": "/contact"}
+      ]
+    },
+    "hero_section": {
+      "path": "frontend/src/components/HeroSection.tsx",
+      "features": [
+        "Interactive Jhumka ornament sway on hover",
+        "Delhi Haat street bird's-eye map layered canvas with glowing stall nodes",
+        "Auto-Rickshaw inspired 'Horn OK Please' / 'Speed 40 km/h' playful academic achievement tags",
+        "Kinetic headline reveal: 'PhD Candidate • Generative AI & Media • Univ of Westminster'",
+        "CTA buttons with gold-leaf borders: 'Explore Research' & 'Unveil Alter Ego'"
+      ]
+    },
+    "resume_section": {
+      "path": "frontend/src/pages/Resume.tsx",
+      "content": {
+        "candidate": "Sangya Tyagi (She/Her)",
+        "role": "PhD Candidate & Associate Fellow (AFHEA) in Generative AI, Media & Communication",
+        "affiliations": ["University of Westminster (PhD in Media & Gen AI)", "University of Texas at Arlington (MA in Communication)"],
+        "experience": "6+ years in higher education teaching, media research, academic publication, and digital communication",
+        "certifications": ["AFHEA (Associate Fellowship of Higher Education Academy)", "AI Ethics & Media Policy Certified"],
+        "skills": ["Generative AI Governance", "Media Theory", "Qualitative & Quantitative Research", "Curriculum Design", "Guest Lecturing", "Academic Writing"]
+      }
+    },
+    "research_section": {
+      "path": "frontend/src/pages/Research.tsx",
+      "content": {
+        "phd_title": "Generative AI, Cultural Memory & Media Policy in Global South & North",
+        "institution": "University of Westminster, London",
+        "key_areas": [
+          "Societal Impact of Large Generative Models on Visual Culture",
+          "Algorithmic Representation & Media Ethics",
+          "Future of Creative Labour under Generative Synthesis"
+        ],
+        "conferences": [
+          {"year": "2025/2026", "title": "International Media & AI Ethics Symposium", "location": "Paris, France", "topic": "Gen AI in Newsroom Workflows"},
+          {"year": "2024", "title": "Global Communication Association Annual Conference", "location": "Málaga, Spain", "topic": "Cultural Bias in Visual Diffusion Models"}
+        ],
+        "publications": [
+          {"title": "De-centering the Synthetic: Cultural Sovereignty in the Age of GenAI", "status": "Peer-Reviewed Journal Publication", "year": "2025"},
+          {"title": "Pedagogical Shifts: Teaching Media Production alongside Generative LLMs", "status": "Conference Proceedings (Paris)", "year": "2025"}
+        ]
+      }
+    },
+    "alter_ego_galleries": {
+      "path": "frontend/src/pages/AlterEgoGallery.tsx",
+      "types": ["art", "photography", "illustrations"],
+      "features": [
+        "Ornate picture frame cards with scalloped corner ornaments",
+        "Placeholder metadata with tags ('Original Acrylic', '35mm Film', 'Vector & Diffusion Hybrid')",
+        "Interactive Lightbox modal on click",
+        "Curator note explaining Sangya's dual life as an AI researcher and visual artisan"
+      ]
+    },
+    "contact_section": {
+      "path": "frontend/src/pages/Contact.tsx",
+      "features": [
+        "Working FastAPI backed contact form saving to MongoDB via /api/enquiries with instant toast feedback",
+        "Fields: Name, Email, Subject (Research Collab, Guest Lecture, Art Enquiry, General), Message",
+        "Social links with branded icons: LinkedIn, University Faculty Profile, X/Twitter, Instagram, Google Scholar, GitHub",
+        "London / Delhi timezone widget for guest lecture queries"
+      ]
+    }
+  },
+  "image_urls": {
+    "delhi_market_hero": {
+      "url": "https://images.pexels.com/photos/33976900/pexels-photo-33976900.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Vibrant and bustling street market in Old Delhi, India, with numerous vendors and shoppers for Delhi Haat market layer",
+      "usage": "Hero section layered backdrop & Delhi Haat bird's eye market texture"
+    },
+    "delhi_market_birds_eye": {
+      "url": "https://images.pexels.com/photos/25469898/pexels-photo-25469898.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Dense crowds and urban architecture at sunset in Delhi",
+      "usage": "Delhi market street aerial texture and research backdrop"
+    },
+    "auto_rickshaw_vibrant": {
+      "url": "https://images.unsplash.com/photo-1517330357046-3ab5a5dd42a1?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA4Mzl8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjBhdXRvJTIwcmlja3NoYXd8ZW58MHx8fHwxNzg5ODU4MzMyfDA&ixlib=rb-4.1.0&q=85",
+      "description": "Yellow auto rickshaw on Indian road with authentic retro signage",
+      "usage": "Home page Indian auto showcase card and retro kinetics illustration"
+    },
+    "auto_rickshaw_motion": {
+      "url": "https://images.pexels.com/photos/67183/pexels-photo-67183.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Fast-moving auto rickshaw on city street",
+      "usage": "Home kinetic stats module"
+    },
+    "jhumka_earrings_gold": {
+      "url": "https://images.unsplash.com/photo-1651160670627-2896ddf7822f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2OTV8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjBqZXdlbHJ5JTIwZWFycmluZ3N8ZW58MHx8fHwxNzg5ODU4MzM2fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Intricate traditional Indian gold jhumka earrings with paisley filigree",
+      "usage": "Hero jhumka spotlight card and Alter Ego art gallery banner"
+    },
+    "jhumka_earring_craft": {
+      "url": "https://images.pexels.com/photos/2733490/pexels-photo-2733490.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Close-up of traditional Indian bridal earring showcasing intricate craftsmanship",
+      "usage": "Alter ego craft details and decorative frame headers"
+    }
+  },
+  "motion": {
+    "physics": "Spring physics for jhumka sway (damping: 12, stiffness: 100)",
+    "page_transitions": "Staggered fade-in-up with 0.08s child delays",
+    "scrolling": "Momentum feel using Framer Motion scroll indicators and reveal containers",
+    "marquee": "Continuous CSS keyframe / motion linear loop",
+    "hover_states": "All buttons scale 1.02 with 1px gold border glow; cards lift -4px with crimson-amber box shadow"
+  },
+  "accessibility": {
+    "wcag_level": "WCAG AA (APCA compliant)",
+    "text_contrast": "Minimum 4.8:1 for body copy (#FFF8E7 / #E0C8B0 on #140608 and #220A0E)",
+    "focus_rings": "focus-visible:ring-2 focus-visible:ring-[#F59E0B] focus-visible:outline-none",
+    "testing_attributes": "Every tab, button, input, dropdown item, and gallery card must have kebab-case data-testid (e.g., data-testid='nav-tab-resume', data-testid='contact-submit-button', data-testid='alter-ego-dropdown-art')"
+  },
+  "instructions_to_main_agent": [
+    "Template is farm-ts (FastAPI backend + Vite React 19 frontend). Ensure all frontend routes in App.tsx render with rich seeded content even if backend is offline.",
+    "Install no extra fonts: use pre-bundled @fontsource-variable/playfair-display, @fontsource-variable/lora, and @fontsource-variable/plus-jakarta-sans in index.css.",
+    "Implement the 5 top tabs: Home, Resume, Research, Alter Ego (Dropdown: Art, Photography, Illustrations), and Contact Me with active tab indicator.",
+    "Alter Ego dropdown MUST use Shadcn DropdownMenu or custom smooth hover/click reveal with data-testid='alter-ego-menu-trigger'.",
+    "Build the Contact enquiry form to post to /api/enquiries with Pydantic model + motor MongoDB save, showing Sonner toast on success.",
+    "Integrate Indian Maximalist visual motifs (Jhumka earring vector animations, Delhi Haat market stall cards, Auto-rickshaw green/yellow badges, marquee ribbons, mirror embroidery effects).",
+    "Ensure high contrast: text is always warm cream (#FFF8E7) against deep lacquer crimson/black (#140608, #220A0E) with bright Marigold (#F59E0B) and Rani Pink (#EC4899) accents."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": {
+    "design_philosophy": "Embrace Indian Maximalism fearlessly — layers of ornament, rich lacquer tones, intricate borderwork, and witty auto-rickshaw typography paired with serious academic rigor.",
+    "spacing_rule": "Generous internal container padding (p-6 to p-12) to prevent border collisions.",
+    "no_generic_slop": "Never default to sterile SaaS blues or plain gray cards. Every card has an ornate header border or subtle corner filigree."
+  }
+}
