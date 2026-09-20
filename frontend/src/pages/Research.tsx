@@ -1,4 +1,4 @@
-import { Microscope, Globe2, FileText, Presentation } from "lucide-react";
+import { Microscope, Globe2, FileText, Presentation, ArrowUpRight } from "lucide-react";
 import Marquee from "@/components/Marquee";
 import { AutoBadge, ArchDivider, StallMap } from "@/components/Ornaments";
 import { Reveal } from "@/components/Reveal";
@@ -147,6 +147,16 @@ export default function Research() {
               <p className="font-mono text-xs uppercase tracking-[0.25em] text-rickshaw">{p.outlet} · {p.year}</p>
               <h3 className="mt-2 font-display text-xl font-bold text-cream">{p.title}</h3>
               <p className="mt-3 max-w-3xl text-sm leading-relaxed text-sand">{p.detail}</p>
+              <a
+                href="https://mavmatrix.uta.edu/communication_theses/50/"
+                target="_blank"
+                rel="noreferrer"
+                data-testid="research-publication-link"
+                className="group mt-4 inline-flex items-center gap-2 font-editorial text-sm uppercase tracking-[0.2em] text-goldleaf transition-colors hover:text-cream"
+              >
+                Read the thesis
+                <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </a>
             </article>
           </Reveal>
         ))}

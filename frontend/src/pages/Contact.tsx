@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { Linkedin, Instagram, Twitter, GraduationCap, Mail, Globe, Send, Clock } from "lucide-react";
+import { Linkedin, Instagram, GraduationCap, Globe, Send, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -14,12 +14,10 @@ type FormspreeErrorBody = { errors?: { message?: string }[]; message?: string };
 const SUBJECTS = ["Research Collab", "Guest Lecture", "Art Enquiry", "General"];
 
 const SOCIALS = [
-  { label: "LinkedIn", handle: "Sangya Tyagi", href: "https://www.linkedin.com/in/sangya-tyagi", icon: Linkedin, color: "#F59E0B" },
-  { label: "Google Scholar", handle: "Citations & papers", href: "https://scholar.google.com", icon: GraduationCap, color: "#10B981" },
-  { label: "University Profile", handle: "University of Westminster", href: "https://www.westminster.ac.uk", icon: Globe, color: "#EC4899" },
-  { label: "Instagram", handle: "Alter ego, in frames", href: "https://www.instagram.com", icon: Instagram, color: "#FBBF24" },
-  { label: "X / Twitter", handle: "Hot takes, cold data", href: "https://x.com", icon: Twitter, color: "#0D9488" },
-  { label: "Email", handle: "Drop a line directly", href: "mailto:sangya.tyagi@example.com", icon: Mail, color: "#A82E40" },
+  { label: "LinkedIn", handle: "in/sangyatyagi", href: "https://www.linkedin.com/in/sangyatyagi/", icon: Linkedin, color: "#F59E0B" },
+  { label: "Publication", handle: "MA Thesis · MavMatrix", href: "https://mavmatrix.uta.edu/communication_theses/50/", icon: GraduationCap, color: "#10B981" },
+  { label: "Instagram", handle: "@serious_sangya", href: "https://www.instagram.com/serious_sangya/", icon: Instagram, color: "#EC4899" },
+  { label: "University Profile", handle: "University of Westminster", href: "https://www.westminster.ac.uk", icon: Globe, color: "#FBBF24" },
 ];
 
 function useClock() {

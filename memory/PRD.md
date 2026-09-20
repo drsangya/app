@@ -28,7 +28,9 @@ Sangya Tyagi (She/Her) — PhD candidate, University of Westminster (Generative 
 - Verified: typecheck clean, backend import OK, curl POST/GET/422 via public URL, browser pass (all tabs, dropdown, lightbox, form submit with toast).
 
 ## Notes / Placeholders
-- Social URLs (LinkedIn, Scholar, Instagram, X, email) are plausible placeholders — Sangya should confirm/replace in `frontend/src/pages/Contact.tsx` (SOCIALS array).
+- Social links are REAL: LinkedIn (in/sangyatyagi), Instagram (@serious_sangya), MA thesis on MavMatrix, University of Westminster. Email/X rows were dropped — re-add in `Contact.tsx` SOCIALS if wanted.
+- Contact form posts to Formspree via `VITE_FORMSPREE_ENDPOINT` (frontend/.env locally; repo variable in GitHub Actions).
+- GitHub Pages ready (2026-09-19): `base: "./"` in vite.config.ts, `HashRouter` in main.tsx, `.github/workflows/deploy-pages.yml` (push to main → build frontend/dist → deploy Pages). Repo needs: Pages source = GitHub Actions, and a `VITE_FORMSPREE_ENDPOINT` Actions variable.
 - Gallery frames are CSS-pattern placeholders awaiting her artwork.
 
 ## Backlog (prioritized)

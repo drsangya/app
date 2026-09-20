@@ -1,4 +1,4 @@
-import { GraduationCap, Briefcase, BadgeCheck, BookOpen, Wrench } from "lucide-react";
+import { GraduationCap, Briefcase, BadgeCheck, BookOpen, Wrench, ArrowUpRight } from "lucide-react";
 import Marquee from "@/components/Marquee";
 import { AutoBadge, ArchDivider, FiligreeCorner } from "@/components/Ornaments";
 import { Reveal } from "@/components/Reveal";
@@ -215,6 +215,16 @@ export default function Resume() {
                 Survey of 330 respondents paired with content analysis of The Times of India, Hindustan Times,
                 FirstPost and The Scroll — tracing perceived and published bias across formats.
               </p>
+              <a
+                href="https://mavmatrix.uta.edu/communication_theses/50/"
+                target="_blank"
+                rel="noreferrer"
+                data-testid="publication-link"
+                className="group mt-4 inline-flex items-center gap-2 font-editorial text-sm uppercase tracking-[0.2em] text-goldleaf transition-colors hover:text-cream"
+              >
+                Read the thesis
+                <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </a>
             </div>
           </Reveal>
         </aside>

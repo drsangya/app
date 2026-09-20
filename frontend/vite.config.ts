@@ -37,6 +37,8 @@ if (!hotReloadDisabled) {
 export default defineConfig(async () => {
   const emergentOverlay = await loadEmergentOverlay();
   return {
+    // Relative base: one build works on Pages project sites (/<repo>/), user sites, custom domains.
+    base: "./",
     plugins: [
       react(),
       tailwindcss(),
