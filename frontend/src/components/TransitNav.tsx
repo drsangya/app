@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence, animate, useMotionValue, useMotionValueEvent } from "motion/react";
 import { ChevronDown, Menu, X } from "lucide-react";
@@ -20,29 +20,76 @@ const ALTER_EGO = [
   { id: "kathak", label: "Kathak", desc: "The first art — dance in eight counts" },
 ];
 
-// Track coordinate s: gold line s = x (y = 36); at the RESEARCH junction (s = 320)
-// the magenta branch curves down to y = 66 (60 units) then runs straight to x = 700 (328 units).
-const JUNCTION_S = 320;
-const CURVE_LEN = 60;
-const ALTER_EGO_S = JUNCTION_S + CURVE_LEN + 328;
+// Every ride follows the drawn lines: gold stations sit at y = 36 by x; the
+// magenta branch leaves the RESEARCH junction (320, 36) via a curve, then runs
+// straight to ALTER EGO (700, 66). Gold<->branch rides always pass the junction.
+type Pt = { x: number; y: number };
 
-function sForPath(pathname: string): number {
-  if (pathname.startsWith("/alter-ego")) return ALTER_EGO_S;
-  const station = STATIONS.find((s) => s.to === pathname);
-  return station ? station.x : 20;
-}
+const GOLD_X: Record<string, number> = {
+  "/": 20,
+  "/resume": 170,
+  "/research": 320,
+  "/teaching": 470,
+  "/contact": 620,
+};
+const JUNCTION: Pt = { x: 320, y: 36 };
+const BRANCH_END: Pt = { x: 700, y: 66 };
 
-function pointAt(s: number): { x: number; y: number } {
-  if (s <= JUNCTION_S) return { x: s, y: 36 };
-  if (s <= JUNCTION_S + CURVE_LEN) {
-    const t = (s - JUNCTION_S) / CURVE_LEN;
+function branchPoint(d: number): Pt {
+  if (d <= 60) {
+    const t = d / 60;
     const mt = 1 - t;
     return {
       x: mt * mt * mt * 320 + 3 * mt * mt * t * 340 + 3 * mt * t * t * 340 + t * t * t * 372,
       y: mt * mt * mt * 36 + 3 * mt * mt * t * 36 + 3 * mt * t * t * 66 + t * t * t * 66,
     };
   }
-  return { x: 372 + (s - JUNCTION_S - CURVE_LEN), y: 66 };
+  return { x: 372 + (d - 60), y: 66 };
+}
+
+function stopPoint(pathname: string): Pt {
+  if (pathname.startsWith("/alter-ego")) return BRANCH_END;
+  return { x: GOLD_X[pathname] ?? 20, y: 36 };
+}
+
+function routePoints(fromPath: string, toPath: string): Pt[] {
+  const fromAlter = fromPath.startsWith("/alter-ego");
+  const toAlter = toPath.startsWith("/alter-ego");
+  if (fromAlter === toAlter) return [stopPoint(fromPath), stopPoint(toPath)];
+  const pts: Pt[] = [];
+  if (toAlter) {
+    const x1 = GOLD_X[fromPath] ?? 20;
+    pts.push({ x: x1, y: 36 });
+    if (x1 !== JUNCTION.x) pts.push(JUNCTION);
+    for (let d = 15; d < 388; d += 15) pts.push(branchPoint(d));
+    pts.push(BRANCH_END);
+  } else {
+    const x2 = GOLD_X[toPath] ?? 20;
+    pts.push(BRANCH_END);
+    for (let d = 373; d > 0; d -= 15) pts.push(branchPoint(d));
+    pts.push(JUNCTION);
+    if (x2 !== JUNCTION.x) pts.push({ x: x2, y: 36 });
+  }
+  return pts.filter((p, i) => i === 0 || p.x !== pts[i - 1].x || p.y !== pts[i - 1].y);
+}
+
+function makeSampler(pts: Pt[]): (p: number) => Pt {
+  const lens = [0];
+  for (let i = 1; i < pts.length; i++) {
+    lens.push(lens[i - 1] + Math.hypot(pts[i].x - pts[i - 1].x, pts[i].y - pts[i - 1].y));
+  }
+  const total = lens[lens.length - 1] || 1;
+  return (p: number): Pt => {
+    const d = Math.min(Math.max(p, 0), 1) * total;
+    let i = 1;
+    while (i < lens.length - 1 && lens[i] < d) i++;
+    const seg = lens[i] - lens[i - 1] || 1;
+    const t = (d - lens[i - 1]) / seg;
+    return {
+      x: pts[i - 1].x + (pts[i].x - pts[i - 1].x) * t,
+      y: pts[i - 1].y + (pts[i].y - pts[i - 1].y) * t,
+    };
+  };
 }
 
 export default function TransitNav() {
@@ -52,19 +99,21 @@ export default function TransitNav() {
   const navigate = useNavigate();
   const alterActive = location.pathname.startsWith("/alter-ego");
 
-  const track = useMotionValue(sForPath(location.pathname));
-  const [autoPos, setAutoPos] = useState(() => pointAt(sForPath(location.pathname)));
+  const progress = useMotionValue(1);
+  const samplerRef = useRef<(p: number) => Pt>(() => stopPoint(location.pathname));
+  const prevPathRef = useRef(location.pathname);
+  const [autoPos, setAutoPos] = useState<Pt>(() => stopPoint(location.pathname));
 
-  useMotionValueEvent(track, "change", (v) => setAutoPos(pointAt(v)));
+  useMotionValueEvent(progress, "change", (v) => setAutoPos(samplerRef.current(v)));
 
   useEffect(() => {
-    const controls = animate(track, sForPath(location.pathname), {
-      type: "spring",
-      stiffness: 45,
-      damping: 15,
-    });
+    if (prevPathRef.current === location.pathname) return;
+    samplerRef.current = makeSampler(routePoints(prevPathRef.current, location.pathname));
+    prevPathRef.current = location.pathname;
+    progress.set(0);
+    const controls = animate(progress, 1, { type: "spring", stiffness: 45, damping: 15 });
     return () => controls.stop();
-  }, [location.pathname, track]);
+  }, [location.pathname, progress]);
 
   return (
     <header
