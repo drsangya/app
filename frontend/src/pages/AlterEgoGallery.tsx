@@ -61,7 +61,7 @@ export default function AlterEgoGallery() {
   const Icon = g.icon;
 
   return (
-    <div data-testid={`alter-ego-${type}-page`} className="pt-16">
+    <div data-testid={`alter-ego-${type}-page`} className="pt-24">
       <section className="paisley-grid relative overflow-hidden border-b border-henna/60 bg-panel px-6 py-20 sm:px-8">
         <div className="pointer-events-none absolute -right-6 top-6 opacity-60">
           <div className="jhumka-sway">

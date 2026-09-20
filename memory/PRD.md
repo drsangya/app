@@ -18,6 +18,15 @@ Sangya Tyagi (She/Her) — PhD candidate, University of Westminster (Generative 
 - Contact: working form (saved to DB) + displayed social links
 - Galleries: placeholder frames to be replaced with Sangya's own work
 
+## Implemented (2026-09-20 — transit redesign)
+- Transit-map navbar (TransitNav.tsx): gold "work line" with station stops HOME / RESUME / RESEARCH / TEACHING / CONTACT, pink branch line to ALTER EGO (opens gallery dropdown), and a tiny auto-rickshaw glyph that spring-animates along the line to the active station. Mobile keeps a hamburger menu.
+- Home hero rebuilt to Sangya's design mock (Main.dc.html): jali backdrop, pink side squiggle, SANGYA solid / TYAGI gold-outline / संग्या त्यागी pink, new bio copy, "AFHEA / GUEST LECTURER" mono line, gold "Explore Research" + pink "Change to Alter Ego Line" CTAs, "Next station: Resume…" caption.
+- AutoShowcase.tsx: double-arched frame with a fully interactive SVG auto — REPAINT cycles FIROZI/GULABI/SARSON colorways, clicking the auto honks (WebAudio two-tone beep + PEEP PEEP bubble + expanding rings + hop + honk counter + caption changes), mouse-move parallax on arch/auto layers, hover bob + faster wheels + drifting dot texture.
+- Tilted gold marquee strip with truck slogans (Marquee variant="gold").
+- New /teaching page: modules & cohorts, syllabus topics, AFHEA credential, teaching philosophy, guest-lecture CTA.
+- All pages' top padding bumped to pt-24 for the taller nav; AutoBadge restyled to mock (gold body, 5px green top strip).
+- Verified: typecheck clean; browser pass — honk counter/caption, repaint, station navigation, dropdown → gallery, gold marquee.
+
 ## Implemented (2026-09-19)
 - Home: kinetic masked line-by-line hero (SANGYA / TYAGI outline / संग्या त्यागी), swinging SVG jhumka, arch-clipped Delhi market photo with scroll parallax, animated Delhi-Haat stall-map backdrop, truck-art badges, numbered manifesto chapters (01 Researcher / 02 Teacher / 03 Alter Ego), "Haat of My Work" stall grid, auto-meter stats, editorial Hindi-English marquee ribbons.
 - Resume: real content — experience timeline (Westminster, Political Sampark, Matrix, UT Arlington), education, certifications (AFHEA etc.), skills cloud, 2021 UTA publication.

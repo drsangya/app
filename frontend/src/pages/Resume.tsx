@@ -94,7 +94,7 @@ const SKILLS = [
 
 export default function Resume() {
   return (
-    <div data-testid="resume-page" className="pt-16">
+    <div data-testid="resume-page" className="pt-24">
       <section className="jali-bg relative overflow-hidden border-b border-henna/60 bg-panel px-6 py-20 sm:px-8">
         <FiligreeCorner className="absolute left-3 top-3 h-14 w-14" />
         <FiligreeCorner className="absolute right-3 top-3 h-14 w-14 -scale-x-100" />

@@ -58,10 +58,10 @@ export function AutoBadge({
 }) {
   return (
     <span
-      className={`inline-flex flex-col overflow-hidden rounded-sm border-2 border-[#1A0609] font-mono text-[10px] font-bold tracking-[0.2em] uppercase shadow-[3px_3px_0_#1A0609] ${className ?? ""}`}
+      className={`inline-flex flex-col overflow-hidden rounded border-2 border-[#1c0a10] font-mono text-[13px] font-bold tracking-[0.12em] uppercase shadow-[3px_3px_0_#1c0a10] ${className ?? ""}`}
     >
-      <span className="block h-1.5 w-full bg-rickshaw" />
-      <span className="block bg-goldleaf px-3 py-1 text-[#1A0609]">{text}</span>
+      <span className="block h-[5px] w-full bg-linegreen" />
+      <span className="block bg-linegold px-4 py-2 text-[#1c0a10]">{text}</span>
     </span>
   );
 }

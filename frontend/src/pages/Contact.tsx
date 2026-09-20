@@ -85,7 +85,7 @@ export default function Contact() {
   };
 
   return (
-    <div data-testid="contact-page" className="pt-16">
+    <div data-testid="contact-page" className="pt-24">
       <section className="jali-bg border-b border-henna/60 bg-panel px-6 py-20 sm:px-8">
         <div className="mx-auto max-w-4xl text-center">
           <Reveal>

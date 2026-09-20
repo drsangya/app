@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
-import { motion, useScroll, useTransform } from "motion/react";
-import { ArrowRight, MapPin, Sparkles } from "lucide-react";
+import { motion } from "motion/react";
+import { ArrowDown, ArrowRight, MapPin } from "lucide-react";
 import Marquee from "@/components/Marquee";
-import { Jhumka, AutoBadge, StallMap, ArchDivider } from "@/components/Ornaments";
+import AutoShowcase from "@/components/AutoShowcase";
+import { Jhumka, AutoBadge, ArchDivider } from "@/components/Ornaments";
 import { MaskedLine, Reveal } from "@/components/Reveal";
 
-const MARKET_IMG =
-  "https://images.pexels.com/photos/33976900/pexels-photo-33976900.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
 const AERIAL_IMG =
   "https://images.pexels.com/photos/25469898/pexels-photo-25469898.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
 const AUTO_IMG =
@@ -60,60 +59,61 @@ const METERS = [
 ];
 
 export default function Home() {
-  const { scrollY } = useScroll();
-  const yImg = useTransform(scrollY, [0, 700], [0, 90]);
-  const yMap = useTransform(scrollY, [0, 700], [0, -70]);
-
   return (
     <div data-testid="home-page">
-      <section className="relative flex min-h-screen items-center overflow-hidden pt-16">
-        <motion.div style={{ y: yMap }} className="absolute inset-0 opacity-40" aria-hidden="true">
-          <StallMap className="h-full w-full" />
-        </motion.div>
-        <div
-          className="absolute inset-0"
+      <section className="relative flex min-h-screen items-center overflow-hidden pt-24">
+        <div className="jali-bg absolute inset-0 opacity-70" aria-hidden="true" />
+        <svg
+          className="pointer-events-none absolute left-0 top-0 hidden h-full w-[180px] lg:block"
+          viewBox="0 0 200 900"
+          preserveAspectRatio="none"
           aria-hidden="true"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(20,6,8,0.75) 0%, rgba(34,10,14,0.92) 80%, rgba(20,6,8,1) 100%)",
-          }}
-        />
+        >
+          <path
+            d="M52 96 C 52 260, 100 300, 62 430 S 24 640, 70 740 C 96 810, 172 810, 172 762 C 172 718, 112 722, 118 768"
+            fill="none"
+            stroke="#d33f55"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+          <circle cx="52" cy="96" r="7" fill="#d33f55" />
+        </svg>
 
-        <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-14 px-6 py-20 sm:px-8 lg:grid-cols-12">
+        <div className="relative z-10 mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-14 px-6 py-16 sm:px-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <Reveal className="mb-6 flex flex-wrap items-center gap-3">
+            <Reveal className="flex flex-wrap items-center gap-3.5">
               <AutoBadge text="Horn OK Please" />
               <AutoBadge text="Fare: PhD on Meter" />
-              <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.25em] text-rani">
-                <MapPin className="h-3.5 w-3.5" /> London, England
+              <span className="inline-flex items-center gap-2 font-mono text-[13px] tracking-[0.16em] text-linepink">
+                <MapPin className="h-4 w-4" /> LONDON, ENGLAND
               </span>
             </Reveal>
 
-            <h1 className="font-display font-black leading-[0.95] tracking-tight">
-              <MaskedLine delay={0.15} className="text-6xl text-cream drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] sm:text-7xl lg:text-8xl">
+            <h1 className="mt-8 font-display font-black leading-[0.86] tracking-[-2px]">
+              <MaskedLine delay={0.15} className="text-[4.5rem] text-linecream drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] sm:text-[7rem] lg:text-[8.5rem]">
                 SANGYA
               </MaskedLine>
-              <MaskedLine delay={0.3} className="text-6xl sm:text-7xl lg:text-8xl">
+              <MaskedLine delay={0.3} className="text-[4.5rem] sm:text-[7rem] lg:text-[8.5rem]">
                 <span className="text-outline-gold">TYAGI</span>
               </MaskedLine>
-              <MaskedLine delay={0.45} className="mt-3 font-editorial text-2xl tracking-[0.3em] text-rani sm:text-3xl">
+              <MaskedLine delay={0.45} className="mt-4 font-editorial text-3xl text-linepink sm:text-4xl lg:text-[2.75rem]">
                 संग्या त्यागी
               </MaskedLine>
             </h1>
 
-            <Reveal delay={0.65} className="mt-7 max-w-xl">
-              <p className="text-base leading-relaxed text-sand sm:text-lg">
-                PhD Candidate — <span className="text-goldleaf">Generative AI &amp; Media</span>, University of
-                Westminster. AFHEA. Guest Lecturer. Researching public policy at the crossroads of machines
-                that imagine and the societies that must govern them.
+            <Reveal delay={0.65} className="mt-6 max-w-xl">
+              <p className="text-lg leading-relaxed text-[#eadfc6] sm:text-[1.35rem] sm:leading-[1.5]">
+                PhD candidate in <span className="text-linegold">Generative AI and Media</span>, University of
+                Westminster. I study how policy keeps up with machines that imagine.
               </p>
+              <p className="mt-3 font-mono text-[13px] tracking-[0.16em] text-linemute">AFHEA / GUEST LECTURER</p>
             </Reveal>
 
-            <Reveal delay={0.8} className="mt-9 flex flex-wrap gap-4">
+            <Reveal delay={0.8} className="mt-7 flex flex-wrap items-center gap-5">
               <Link
                 to="/research"
                 data-testid="hero-cta-research"
-                className="group inline-flex items-center gap-2 border-2 border-goldleaf bg-marigold px-7 py-3 font-editorial text-sm font-bold uppercase tracking-[0.2em] text-[#1A0609] shadow-[5px_5px_0_#852636] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[7px_9px_0_#852636]"
+                className="group inline-flex items-center gap-3 bg-linegold px-7 py-4 font-mono text-sm font-bold uppercase tracking-[0.16em] text-[#1c0a10] shadow-[6px_6px_0_#9e2f5f] transition-all duration-300 hover:-translate-y-1 hover:shadow-[8px_10px_0_#9e2f5f]"
               >
                 Explore Research
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -121,44 +121,57 @@ export default function Home() {
               <Link
                 to="/alter-ego/art"
                 data-testid="hero-cta-alter-ego"
-                className="group inline-flex items-center gap-2 border-2 border-rani bg-transparent px-7 py-3 font-editorial text-sm font-bold uppercase tracking-[0.2em] text-rani transition-all duration-300 hover:-translate-y-1 hover:bg-rani hover:text-cream"
+                className="inline-flex items-center gap-2 border-2 border-linepink px-6 py-[14px] font-mono text-sm font-bold uppercase tracking-[0.16em] text-linepink transition-colors duration-300 hover:bg-linepink hover:text-linecream"
               >
-                <Sparkles className="h-4 w-4" />
-                Unveil Alter Ego
+                Change to Alter Ego Line
               </Link>
+            </Reveal>
+
+            <Reveal delay={0.95} className="mt-8">
+              <p
+                className="flex items-center gap-3 font-mono text-[13px] tracking-[0.14em] text-linepink"
+                data-testid="next-station-caption"
+              >
+                <ArrowDown className="h-4 w-4" />
+                NEXT STATION: RESUME. DOORS WILL OPEN ON THE LEFT.
+              </p>
             </Reveal>
           </div>
 
           <div className="relative lg:col-span-5">
             <Reveal delay={0.5}>
-              <div className="relative mx-auto max-w-sm">
-                <div className="absolute -top-14 left-1/2 z-20 -translate-x-1/2">
+              <div className="relative mx-auto w-full max-w-[420px]">
+                <div className="relative z-20 flex justify-center">
                   <div className="jhumka-sway">
-                    <Jhumka className="h-36 w-24 drop-shadow-[0_8px_20px_rgba(245,158,11,0.35)]" id="hero-jg" />
+                    <Jhumka className="h-24 w-16 drop-shadow-[0_8px_20px_rgba(234,181,67,0.35)]" id="hero-jg" />
                   </div>
                 </div>
-                <motion.figure
-                  style={{ y: yImg }}
-                  className="gold-frame arch-clip relative mt-16 overflow-hidden"
-                  data-testid="hero-market-frame"
-                >
-                  <img
-                    src={MARKET_IMG}
-                    alt="Bustling Indian market street from above, dense with stalls and colour"
-                    className="h-[420px] w-full object-cover"
-                    loading="eager"
-                  />
-                  <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#140608] to-transparent px-5 pb-4 pt-14 font-mono text-[10px] uppercase tracking-[0.3em] text-amber-200">
-                    Delhi Haat — Bird's-Eye Archive
-                  </figcaption>
-                </motion.figure>
+                <div className="relative -mt-4">
+                  <svg
+                    className="pointer-events-none absolute -top-6 left-1/2 z-0 w-[112%] -translate-x-1/2"
+                    viewBox="0 0 436 224"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path d="M 4 220 A 214 214 0 0 1 432 220" stroke="#eab543" strokeWidth="10" strokeLinecap="round" strokeDasharray="0 20" />
+                    <path d="M 4 220 A 214 214 0 0 1 432 220" stroke="#d9489b" strokeWidth="7" strokeLinecap="round" strokeDasharray="0 20" strokeDashoffset="-10" />
+                  </svg>
+                  <div className="relative z-10">
+                    <AutoShowcase />
+                  </div>
+                </div>
               </div>
             </Reveal>
           </div>
         </div>
       </section>
 
-      <Marquee />
+      <div className="relative z-20 -mt-10 -rotate-[1.2deg] scale-x-[1.02]">
+        <Marquee
+          variant="gold"
+          items={["Sabar Ka Phal Meetha", "Do Not Follow, I Am Also Lost", "OK Tata Bye Bye", "See You at the Next Station"]}
+        />
+      </div>
 
       <section className="mx-auto max-w-7xl px-6 py-24 sm:px-8" data-testid="manifesto-section">
         <Reveal>

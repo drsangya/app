@@ -54,7 +54,7 @@ const METHODS = ["NVivo", "SPSS", "R", "Surveys", "Ethnography", "Content Analys
 
 export default function Research() {
   return (
-    <div data-testid="research-page" className="pt-16">
+    <div data-testid="research-page" className="pt-24">
       <section className="relative overflow-hidden border-b border-henna/60 px-6 py-24 sm:px-8">
         <div className="absolute inset-0 opacity-25" aria-hidden="true">
           <StallMap className="h-full w-full" />
