@@ -18,6 +18,13 @@ Sangya Tyagi (She/Her) — PhD candidate, University of Westminster (Generative 
 - Contact: working form (saved to DB) + displayed social links
 - Galleries: placeholder frames to be replaced with Sangya's own work
 
+## Implemented (2026-09-20 — Alter Ego station)
+- New `/alter-ego` hub page (AlterEgo.tsx) matching Sangya's AlterEgo.dc.html mock: "Magenta Line / Outside Work Hours" badge, ALTER pink / EGO cream-outline, "AAJ KA MENU" diner board (Photography→Frames, Illustration→Drawings, Sketchbook→Unfinished, Kathak→The First Art — all clickable), scattered collage (tilted Delhi polaroid, pink arch-line illustration card, gold striped art card — all hover-straighten and link to galleries), her transparent chai-hand PNG (tilts on hover), dotted string-lights arc, pink squiggles, "Back to Work Line" button, tilted pink station marquee (new Marquee variant "pink").
+- Two new gallery types added to AlterEgoGallery: Sketchbook and Kathak (5 galleries total; nav dropdown lists all 5).
+- Clicking the ALTER EGO nav station now opens the hub (hover still unfolds the dropdown); Home CTAs point to the hub.
+- Images self-hosted in `frontend/public/assets/` (delhi-market.jpg, chai-hand.png) — relative paths so GitHub Pages project-site URLs work.
+- Verified: typecheck clean; browser pass — hub renders per mock, menu → Kathak gallery, polaroid → Photography gallery, collage/marquee/footer all present.
+
 ## Implemented (2026-09-20 — transit redesign)
 - Transit-map navbar (TransitNav.tsx): gold "work line" with station stops HOME / RESUME / RESEARCH / TEACHING / CONTACT, pink branch line to ALTER EGO (opens gallery dropdown), and a tiny auto-rickshaw glyph that spring-animates along the line to the active station. Mobile keeps a hamburger menu.
 - Home hero rebuilt to Sangya's design mock (Main.dc.html): jali backdrop, pink side squiggle, SANGYA solid / TYAGI gold-outline / संग्या त्यागी pink, new bio copy, "AFHEA / GUEST LECTURER" mono line, gold "Explore Research" + pink "Change to Alter Ego Line" CTAs, "Next station: Resume…" caption.

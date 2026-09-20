@@ -90,7 +90,7 @@ export default function TransitNav() {
 
             <g
               data-testid="alter-ego-menu-trigger"
-              onClick={() => setDropOpen(true)}
+              onClick={() => navigate("/alter-ego")}
               onMouseEnter={() => setDropOpen(true)}
               onKeyDown={(e) => e.key === "Enter" && setDropOpen((v) => !v)}
               role="button"

@@ -6,7 +6,7 @@ import Marquee from "@/components/Marquee";
 import { AutoBadge, ArchDivider, Jhumka } from "@/components/Ornaments";
 import { Reveal } from "@/components/Reveal";
 
-type GalleryType = "art" | "photography" | "illustrations";
+type GalleryType = "art" | "photography" | "illustrations" | "sketchbook" | "kathak";
 
 const GALLERIES: Record<
   GalleryType,
@@ -38,6 +38,24 @@ const GALLERIES: Record<
     accent: "#EC4899",
     icon: PenTool,
     frames: ["Print 01", "Print 02", "Print 03", "Print 04", "Print 05", "Print 06"],
+  },
+  sketchbook: {
+    title: "Sketchbook",
+    hindi: "स्केचबुक",
+    tag: "Unfinished · WIP",
+    note: "Margins, thumbnails and half-finished thoughts — the proudly unfinished shelf.",
+    accent: "#62BF9C",
+    icon: NotebookPen,
+    frames: ["Page 01", "Page 02", "Page 03", "Page 04", "Page 05", "Page 06"],
+  },
+  kathak: {
+    title: "Kathak",
+    hindi: "कथक",
+    tag: "The First Art",
+    note: "Before the paint and the pixels there was dance — spins, tatkaar, and stories told in eight counts.",
+    accent: "#FBBF24",
+    icon: Footprints,
+    frames: ["Piece 01", "Piece 02", "Piece 03", "Piece 04", "Piece 05", "Piece 06"],
   },
 };
 
