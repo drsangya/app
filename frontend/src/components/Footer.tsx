@@ -18,7 +18,7 @@ export default function Footer() {
             stall in the haat of my work — browse slowly, bargain boldly.
           </p>
           <p className="font-mono text-xs tracking-[0.25em] text-sand/60 uppercase">
-            © 2026 Sangya Tyagi · सज्ञा त्यागी · London — Delhi
+            © 2026 Sangya Tyagi · सज्ञा त्यागी · London
           </p>
         </div>
       </div>

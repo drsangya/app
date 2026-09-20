@@ -95,6 +95,17 @@ function makeSampler(pts: Pt[]): { sample: (p: number) => Pt; total: number } {
 
 export default function TransitNav() {
   const [dropOpen, setDropOpen] = useState(false);
+  const closeTimer = useRef<number | null>(null);
+  const scheduleClose = () => {
+    if (closeTimer.current) window.clearTimeout(closeTimer.current);
+    closeTimer.current = window.setTimeout(() => setDropOpen(false), 180);
+  };
+  const cancelClose = () => {
+    if (closeTimer.current) {
+      window.clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  };
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -136,7 +147,7 @@ export default function TransitNav() {
           </span>
         </Link>
 
-        <div className="relative hidden lg:block" onMouseLeave={() => setDropOpen(false)}>
+        <div className="relative hidden lg:block" onMouseLeave={scheduleClose}>
           <svg width="820" height="84" viewBox="0 0 820 84" role="navigation" aria-label="Site route map">
             <path d="M320 36 C 340 36, 340 66, 372 66 L 700 66" fill="none" stroke="#d9489b" strokeWidth="6" strokeLinecap="round" />
             <line x1="20" y1="36" x2="620" y2="36" stroke="#eab543" strokeWidth="6" strokeLinecap="round" />
@@ -148,6 +159,7 @@ export default function TransitNav() {
                   key={s.to}
                   data-testid={s.testid}
                   onClick={() => navigate(s.to)}
+                  onMouseEnter={() => setDropOpen(false)}
                   onKeyDown={(e) => e.key === "Enter" && navigate(s.to)}
                   role="link"
                   tabIndex={0}
@@ -184,7 +196,11 @@ export default function TransitNav() {
             <g
               data-testid="alter-ego-menu-trigger"
               onClick={() => navigate("/alter-ego")}
-              onMouseEnter={() => setDropOpen(true)}
+              onMouseEnter={() => {
+                cancelClose();
+                setDropOpen(true);
+              }}
+              onMouseLeave={scheduleClose}
               onKeyDown={(e) => e.key === "Enter" && setDropOpen((v) => !v)}
               role="button"
               tabIndex={0}
@@ -225,6 +241,8 @@ export default function TransitNav() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 8, scale: 0.98 }}
                 transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+                onMouseEnter={cancelClose}
+                onMouseLeave={scheduleClose}
                 className="jali-bg absolute right-0 top-full z-50 mt-1 w-72 border border-linepink/60 bg-[#240A0F] p-2 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.85)]"
                 data-testid="alter-ego-dropdown"
               >

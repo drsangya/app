@@ -136,14 +136,14 @@ export default function AlterEgo() {
                 </span>
               </Link>
             </Reveal>
-            <Reveal delay={0.65} className="ml-auto">
+            <Reveal delay={0.65}>
               <motion.img
                 src="assets/chai-hand.png"
                 alt="Illustration of a henna-decorated hand holding a glass of cutting chai"
                 data-testid="chai-hand"
                 whileHover={{ rotate: -4, y: -8 }}
                 transition={{ type: "spring", stiffness: 200, damping: 14 }}
-                className="w-40 cursor-pointer drop-shadow-[0_16px_24px_rgba(0,0,0,0.5)] sm:w-52"
+                className="w-56 cursor-pointer drop-shadow-[0_16px_24px_rgba(0,0,0,0.5)] sm:w-72"
               />
             </Reveal>
           </div>
