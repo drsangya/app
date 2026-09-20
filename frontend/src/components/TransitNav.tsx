@@ -73,13 +73,13 @@ function routePoints(fromPath: string, toPath: string): Pt[] {
   return pts.filter((p, i) => i === 0 || p.x !== pts[i - 1].x || p.y !== pts[i - 1].y);
 }
 
-function makeSampler(pts: Pt[]): (p: number) => Pt {
+function makeSampler(pts: Pt[]): { sample: (p: number) => Pt; total: number } {
   const lens = [0];
   for (let i = 1; i < pts.length; i++) {
     lens.push(lens[i - 1] + Math.hypot(pts[i].x - pts[i - 1].x, pts[i].y - pts[i - 1].y));
   }
   const total = lens[lens.length - 1] || 1;
-  return (p: number): Pt => {
+  const sample = (p: number): Pt => {
     const d = Math.min(Math.max(p, 0), 1) * total;
     let i = 1;
     while (i < lens.length - 1 && lens[i] < d) i++;
@@ -90,6 +90,7 @@ function makeSampler(pts: Pt[]): (p: number) => Pt {
       y: pts[i - 1].y + (pts[i].y - pts[i - 1].y) * t,
     };
   };
+  return { sample, total };
 }
 
 export default function TransitNav() {
@@ -100,18 +101,25 @@ export default function TransitNav() {
   const alterActive = location.pathname.startsWith("/alter-ego");
 
   const progress = useMotionValue(1);
-  const samplerRef = useRef<(p: number) => Pt>(() => stopPoint(location.pathname));
+  const samplerRef = useRef<{ sample: (p: number) => Pt; total: number }>({
+    sample: () => stopPoint(location.pathname),
+    total: 1,
+  });
   const prevPathRef = useRef(location.pathname);
   const [autoPos, setAutoPos] = useState<Pt>(() => stopPoint(location.pathname));
 
-  useMotionValueEvent(progress, "change", (v) => setAutoPos(samplerRef.current(v)));
+  useMotionValueEvent(progress, "change", (v) => setAutoPos(samplerRef.current.sample(v)));
 
   useEffect(() => {
     if (prevPathRef.current === location.pathname) return;
-    samplerRef.current = makeSampler(routePoints(prevPathRef.current, location.pathname));
+    const route = routePoints(prevPathRef.current, location.pathname);
     prevPathRef.current = location.pathname;
+    samplerRef.current = makeSampler(route);
     progress.set(0);
-    const controls = animate(progress, 1, { type: "spring", stiffness: 45, damping: 15 });
+    const controls = animate(progress, 1, {
+      duration: Math.min(Math.max(samplerRef.current.total / 700, 0.45), 1.4),
+      ease: [0.45, 0, 0.2, 1],
+    });
     return () => controls.stop();
   }, [location.pathname, progress]);
 
