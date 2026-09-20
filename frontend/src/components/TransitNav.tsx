@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, animate, useMotionValue, useMotionValueEvent } from "motion/react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Jhumka } from "./Ornaments";
 
@@ -20,6 +20,31 @@ const ALTER_EGO = [
   { id: "kathak", label: "Kathak", desc: "The first art — dance in eight counts" },
 ];
 
+// Track coordinate s: gold line s = x (y = 36); at the RESEARCH junction (s = 320)
+// the magenta branch curves down to y = 66 (60 units) then runs straight to x = 700 (328 units).
+const JUNCTION_S = 320;
+const CURVE_LEN = 60;
+const ALTER_EGO_S = JUNCTION_S + CURVE_LEN + 328;
+
+function sForPath(pathname: string): number {
+  if (pathname.startsWith("/alter-ego")) return ALTER_EGO_S;
+  const station = STATIONS.find((s) => s.to === pathname);
+  return station ? station.x : 20;
+}
+
+function pointAt(s: number): { x: number; y: number } {
+  if (s <= JUNCTION_S) return { x: s, y: 36 };
+  if (s <= JUNCTION_S + CURVE_LEN) {
+    const t = (s - JUNCTION_S) / CURVE_LEN;
+    const mt = 1 - t;
+    return {
+      x: mt * mt * mt * 320 + 3 * mt * mt * t * 340 + 3 * mt * t * t * 340 + t * t * t * 372,
+      y: mt * mt * mt * 36 + 3 * mt * mt * t * 36 + 3 * mt * t * t * 66 + t * t * t * 66,
+    };
+  }
+  return { x: 372 + (s - JUNCTION_S - CURVE_LEN), y: 66 };
+}
+
 export default function TransitNav() {
   const [dropOpen, setDropOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -27,8 +52,19 @@ export default function TransitNav() {
   const navigate = useNavigate();
   const alterActive = location.pathname.startsWith("/alter-ego");
 
-  const activeX = alterActive ? 700 : (STATIONS.find((s) => s.to === location.pathname)?.x ?? 20);
-  const activeY = alterActive ? 66 : 36;
+  const track = useMotionValue(sForPath(location.pathname));
+  const [autoPos, setAutoPos] = useState(() => pointAt(sForPath(location.pathname)));
+
+  useMotionValueEvent(track, "change", (v) => setAutoPos(pointAt(v)));
+
+  useEffect(() => {
+    const controls = animate(track, sForPath(location.pathname), {
+      type: "spring",
+      stiffness: 45,
+      damping: 15,
+    });
+    return () => controls.stop();
+  }, [location.pathname, track]);
 
   return (
     <header
@@ -115,19 +151,14 @@ export default function TransitNav() {
               </text>
             </g>
 
-            <motion.g
-              initial={false}
-              animate={{ x: activeX, y: activeY }}
-              transition={{ type: "spring", stiffness: 55, damping: 13 }}
-              data-testid="nav-auto"
-            >
+            <g transform={`translate(${autoPos.x.toFixed(1)} ${autoPos.y.toFixed(1)})`} data-testid="nav-auto">
               <rect x="-29" y="-8" width="58" height="16" rx="6" fill="#fbf1dc" />
               <rect x="-21" y="-4" width="9" height="7" rx="1" fill="#1c0a10" />
               <rect x="-7" y="-4" width="9" height="7" rx="1" fill="#1c0a10" />
               <rect x="7" y="-4" width="9" height="7" rx="1" fill="#1c0a10" />
               <circle cx="-16" cy="9" r="4" fill="#1c0a10" stroke="#fbf1dc" strokeWidth="1.5" />
               <circle cx="16" cy="9" r="4" fill="#1c0a10" stroke="#fbf1dc" strokeWidth="1.5" />
-            </motion.g>
+            </g>
           </svg>
 
           <AnimatePresence>
