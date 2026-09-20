@@ -128,7 +128,7 @@ export default function Resume() {
             {EXPERIENCE.map((e, i) => (
               <Reveal key={e.role} delay={i * 0.05}>
                 <article className="relative pb-10" data-testid={`experience-item-${i}`}>
-                  <span className="absolute -left-[41px] top-1 h-5 w-5 rounded-full border-2 border-goldleaf bg-lacquer" />
+                  <span className="absolute -left-[43px] top-1 h-5 w-5 rounded-full border-2 border-goldleaf bg-lacquer" />
                   <p className="font-mono text-xs uppercase tracking-[0.25em] text-rickshaw">{e.period}</p>
                   <h3 className="mt-1.5 font-display text-xl font-bold text-cream">{e.role}</h3>
                   <p className="text-sm font-semibold text-goldleaf">{e.org}</p>
