@@ -16,6 +16,8 @@ const ALTER_EGO = [
   { id: "art", label: "Art & Painting", desc: "Handmade & physical explorations" },
   { id: "photography", label: "Photography", desc: "Delhi streets & candid frames" },
   { id: "illustrations", label: "Illustrations", desc: "Folklore, digital & AI hybrids" },
+  { id: "sketchbook", label: "Sketchbook", desc: "Margins & half-finished thoughts" },
+  { id: "kathak", label: "Kathak", desc: "The first art — dance in eight counts" },
 ];
 
 export default function TransitNav() {

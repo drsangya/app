@@ -38,7 +38,7 @@ const CHAPTERS = [
     hindi: "कलाकार",
     body: "Off the clock: paint, film frames and folklore-digital illustrations. The bazaar's loudest stall — maximalist, handmade, unapologetic.",
     img: JHUMKA_IMG,
-    to: "/alter-ego/art",
+    to: "/alter-ego",
     cta: "Unveil the alter ego",
   },
 ];

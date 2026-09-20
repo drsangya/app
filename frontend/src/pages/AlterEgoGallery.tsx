@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
-import { X, Brush, Camera, PenTool } from "lucide-react";
+import { X, Brush, Camera, PenTool, NotebookPen, Footprints } from "lucide-react";
 import Marquee from "@/components/Marquee";
 import { AutoBadge, ArchDivider, Jhumka } from "@/components/Ornaments";
 import { Reveal } from "@/components/Reveal";
