@@ -38,7 +38,7 @@ export default function Navbar() {
           <span className="font-display text-lg font-black tracking-tight text-cream">
             Sangya <span className="text-goldleaf">Tyagi</span>
           </span>
-          <span className="hidden font-editorial text-xs tracking-[0.2em] text-rani sm:inline">संग्या</span>
+          <span className="hidden font-editorial text-xs tracking-[0.2em] text-rani sm:inline">सज्ञा</span>
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex" aria-label="Primary">

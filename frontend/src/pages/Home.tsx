@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { ArrowDown, ArrowRight, MapPin } from "lucide-react";
 import Marquee from "@/components/Marquee";
 import AutoShowcase from "@/components/AutoShowcase";
-import { Jhumka, AutoBadge, ArchDivider } from "@/components/Ornaments";
+import { AutoBadge, ArchDivider } from "@/components/Ornaments";
 import { MaskedLine, Reveal } from "@/components/Reveal";
 
 const AERIAL_IMG =
@@ -97,7 +97,7 @@ export default function Home() {
                 <span className="text-outline-gold">TYAGI</span>
               </MaskedLine>
               <MaskedLine delay={0.45} className="mt-4 font-editorial text-3xl text-linepink sm:text-4xl lg:text-[2.75rem]">
-                संग्या त्यागी
+                सज्ञा त्यागी
               </MaskedLine>
             </h1>
 
@@ -141,12 +141,7 @@ export default function Home() {
           <div className="relative lg:col-span-5">
             <Reveal delay={0.5}>
               <div className="relative mx-auto w-full max-w-[420px]">
-                <div className="relative z-20 flex justify-center">
-                  <div className="jhumka-sway">
-                    <Jhumka className="h-24 w-16 drop-shadow-[0_8px_20px_rgba(234,181,67,0.35)]" id="hero-jg" />
-                  </div>
-                </div>
-                <div className="relative -mt-4">
+                <div className="relative mt-6">
                   <svg
                     className="pointer-events-none absolute -top-6 left-1/2 z-0 w-[112%] -translate-x-1/2"
                     viewBox="0 0 436 224"

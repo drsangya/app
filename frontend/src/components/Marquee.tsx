@@ -1,5 +1,5 @@
 const DEFAULT_ITEMS = [
-  "संग्या त्यागी",
+  "सज्ञा त्यागी",
   "Sangya Tyagi",
   "Generative AI & Media",
   "University of Westminster",
