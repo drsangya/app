@@ -18,6 +18,10 @@ Sangya Tyagi (She/Her) — PhD candidate, University of Westminster (Generative 
 - Contact: working form (saved to DB) + displayed social links
 - Galleries: placeholder frames to be replaced with Sangya's own work
 
+## Implemented (2026-09-22 — golden vine)
+- GoldenVine.tsx: interactive golden pothos/marigold toran strung across every page just below the nav. Real verlet-style spring physics: grab the vine anywhere and pull in any direction (smoothstep falloff tugs neighbouring leaves), stretch caps at 95 units, and on release it snaps back with neighbour-coupled spring wobble. Gold stem + heart leaves (palette golds #f6cf6b/#d69f2a/#8a5a0a) with pink marigold clusters; hit area limited to the vine stroke so page content stays clickable.
+- Verified: browser drag test — pulled down/right, cap held when yanked past the limit, elastic snap-back with bounce, settles straight. Typecheck clean.
+
 ## Implemented (2026-09-20 — Alter Ego station)
 - New `/alter-ego` hub page (AlterEgo.tsx) matching Sangya's AlterEgo.dc.html mock: "Magenta Line / Outside Work Hours" badge, ALTER pink / EGO cream-outline, "AAJ KA MENU" diner board (Photography→Frames, Illustration→Drawings, Sketchbook→Unfinished, Kathak→The First Art — all clickable), scattered collage (tilted Delhi polaroid, pink arch-line illustration card, gold striped art card — all hover-straighten and link to galleries), her transparent chai-hand PNG (tilts on hover), dotted string-lights arc, pink squiggles, "Back to Work Line" button, tilted pink station marquee (new Marquee variant "pink").
 - Two new gallery types added to AlterEgoGallery: Sketchbook and Kathak (5 galleries total; nav dropdown lists all 5).

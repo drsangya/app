@@ -96,8 +96,8 @@ export default function Home() {
               <MaskedLine delay={0.3} className="text-[4.5rem] sm:text-[7rem] lg:text-[8.5rem]">
                 <span className="text-outline-gold">TYAGI</span>
               </MaskedLine>
-              <MaskedLine delay={0.45} className="mt-8 font-editorial text-3xl text-linepink sm:text-4xl lg:text-[2.75rem]">
-                सज्ञा त्यागी
+              <MaskedLine delay={0.45} className="mt-8 font-editorial text-3xl text-linegreen sm:text-4xl lg:text-[2.75rem]">
+                संज्ञा त्यागी
               </MaskedLine>
             </h1>
 

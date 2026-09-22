@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import SmoothScroll from "@/components/SmoothScroll";
 import TransitNav from "@/components/TransitNav";
+import GoldenVine from "@/components/GoldenVine";
 import Footer from "@/components/Footer";
 import Home from "@/pages/Home";
 import Resume from "@/pages/Resume";
@@ -17,6 +18,7 @@ export default function App() {
       <div className="min-h-screen bg-lacquer font-sans text-cream">
         <div className="grain-overlay" aria-hidden="true" />
         <TransitNav />
+        <GoldenVine />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
