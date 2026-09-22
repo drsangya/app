@@ -87,65 +87,68 @@ export default function AlterEgo() {
         </div>
 
         <div className="relative lg:col-span-7">
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-            <Reveal delay={0.35}>
-              <Link
-                to="/alter-ego/photography"
-                data-testid="collage-photography"
-                className="block rotate-[-5deg] bg-linecream p-3.5 pb-2.5 shadow-[6px_8px_0_rgba(0,0,0,0.5)] transition-all duration-300 hover:rotate-0 hover:scale-[1.03]"
-              >
-                <img
-                  src="assets/delhi-market.jpg"
-                  alt="Delhi Haat market street photographed from inside the crowd"
-                  className="aspect-[272/330] w-full object-cover"
-                />
-                <p className="pt-2.5 font-mono text-[13px] font-bold tracking-[0.14em] text-[#1c0a10]">
-                  PHOTOGRAPHY / DELHI
-                </p>
-              </Link>
-            </Reveal>
-            <Reveal delay={0.45} className="sm:mt-10">
-              <Link
-                to="/alter-ego/illustrations"
-                data-testid="collage-illustrations"
-                className="block rotate-[4deg] bg-linepink p-5 shadow-[6px_8px_0_rgba(0,0,0,0.5)] transition-all duration-300 hover:rotate-0 hover:scale-[1.03]"
-              >
-                <svg viewBox="0 0 240 300" className="w-full" aria-hidden="true">
-                  <path d="M20 296 L20 140 A100 100 0 0 1 220 140 L220 296" fill="none" stroke="#fbf1dc" strokeWidth="5" />
-                  <path d="M52 296 L52 145 A68 68 0 0 1 188 145 L188 296" fill="none" stroke="#eab543" strokeWidth="5" />
-                  <path d="M84 296 L84 150 A36 36 0 0 1 156 150 L156 296" fill="none" stroke="#1c0a10" strokeWidth="5" />
-                  <circle cx="120" cy="60" r="9" fill="#1c0a10" />
-                </svg>
-                <p className="pt-2.5 font-mono text-[13px] font-bold tracking-[0.14em] text-[#1c0a10]">
-                  [ ILLUSTRATION GOES HERE ]
-                </p>
-              </Link>
-            </Reveal>
-          </div>
-
-          <div className="mt-8 flex items-end gap-6">
-            <Reveal delay={0.55} className="w-64 shrink-0">
-              <Link
-                to="/alter-ego/art"
-                data-testid="collage-art"
-                className="flex h-44 rotate-[-2deg] items-end p-4 shadow-[6px_8px_0_rgba(0,0,0,0.5)] transition-all duration-300 hover:rotate-0 hover:scale-[1.03]"
-                style={{ background: "repeating-linear-gradient(135deg, #eab543 0, #eab543 14px, #d69f2a 14px, #d69f2a 28px)" }}
-              >
-                <span className="bg-[#1c0a10] px-2.5 py-1.5 font-mono text-[13px] font-bold tracking-[0.14em] text-linegold">
-                  [ ART / PAINTING ]
-                </span>
-              </Link>
-            </Reveal>
-            <Reveal delay={0.65}>
-              <motion.img
-                src="assets/chai-hand.png"
-                alt="Illustration of a henna-decorated hand holding a glass of cutting chai"
-                data-testid="chai-hand"
-                whileHover={{ rotate: -4, y: -8 }}
-                transition={{ type: "spring", stiffness: 200, damping: 14 }}
-                className="w-56 cursor-pointer drop-shadow-[0_16px_24px_rgba(0,0,0,0.5)] sm:w-72"
-              />
-            </Reveal>
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
+            <div className="flex flex-col gap-10">
+              <Reveal delay={0.35}>
+                <Link
+                  to="/alter-ego/photography"
+                  data-testid="collage-photography"
+                  className="block rotate-[-5deg] bg-linecream p-3.5 pb-2.5 shadow-[6px_8px_0_rgba(0,0,0,0.5)] transition-all duration-300 hover:rotate-0 hover:scale-[1.03]"
+                >
+                  <img
+                    src="assets/delhi-market.jpg"
+                    alt="Delhi Haat market street photographed from inside the crowd"
+                    className="aspect-[272/330] w-full object-cover"
+                  />
+                  <p className="pt-2.5 font-mono text-[13px] font-bold tracking-[0.14em] text-[#1c0a10]">
+                    PHOTOGRAPHY / DELHI
+                  </p>
+                </Link>
+              </Reveal>
+              <Reveal delay={0.55} className="w-64 self-end">
+                <Link
+                  to="/alter-ego/art"
+                  data-testid="collage-art"
+                  className="flex h-44 rotate-[-2deg] items-end p-4 shadow-[6px_8px_0_rgba(0,0,0,0.5)] transition-all duration-300 hover:rotate-0 hover:scale-[1.03]"
+                  style={{ background: "repeating-linear-gradient(135deg, #eab543 0, #eab543 14px, #d69f2a 14px, #d69f2a 28px)" }}
+                >
+                  <span className="bg-[#1c0a10] px-2.5 py-1.5 font-mono text-[13px] font-bold tracking-[0.14em] text-linegold">
+                    [ ART / PAINTING ]
+                  </span>
+                </Link>
+              </Reveal>
+            </div>
+            <div className="flex flex-col gap-10 sm:mt-10">
+              <Reveal delay={0.45}>
+                <Link
+                  to="/alter-ego/illustrations"
+                  data-testid="collage-illustrations"
+                  className="block rotate-[4deg] bg-linepink p-5 shadow-[6px_8px_0_rgba(0,0,0,0.5)] transition-all duration-300 hover:rotate-0 hover:scale-[1.03]"
+                >
+                  <svg viewBox="0 0 240 300" className="w-full" aria-hidden="true">
+                    <path d="M20 296 L20 140 A100 100 0 0 1 220 140 L220 296" fill="none" stroke="#fbf1dc" strokeWidth="5" />
+                    <path d="M52 296 L52 145 A68 68 0 0 1 188 145 L188 296" fill="none" stroke="#eab543" strokeWidth="5" />
+                    <path d="M84 296 L84 150 A36 36 0 0 1 156 150 L156 296" fill="none" stroke="#1c0a10" strokeWidth="5" />
+                    <circle cx="120" cy="60" r="9" fill="#1c0a10" />
+                  </svg>
+                  <p className="pt-2.5 font-mono text-[13px] font-bold tracking-[0.14em] text-[#1c0a10]">
+                    [ ILLUSTRATION GOES HERE ]
+                  </p>
+                </Link>
+              </Reveal>
+              <Reveal delay={0.65} className="self-center">
+                <Link to="/alter-ego/sketchbook" data-testid="chai-link" className="block w-fit" aria-label="Open the Sketchbook gallery">
+                  <motion.img
+                    src="assets/chai-hand.png"
+                    alt="Illustration of a henna-decorated hand holding a glass of cutting chai"
+                    data-testid="chai-hand"
+                    whileHover={{ rotate: -4, y: -8 }}
+                    transition={{ type: "spring", stiffness: 200, damping: 14 }}
+                    className="w-56 cursor-pointer drop-shadow-[0_16px_24px_rgba(0,0,0,0.5)] sm:w-72"
+                  />
+                </Link>
+              </Reveal>
+            </div>
           </div>
 
           <Reveal delay={0.75} className="mt-10 text-center">
