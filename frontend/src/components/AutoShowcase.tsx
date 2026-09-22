@@ -130,7 +130,7 @@ export default function AutoShowcase() {
               <g style={{ transform: `translate(${(pos.x * 8).toFixed(1)}px, ${(pos.y * 3).toFixed(1)}px)`, transition: tr }}>
                 <g className={honking ? "animate-[dhhop_.45s_ease-out]" : undefined}>
                   <g className={hover ? "animate-[dhbob_.3s_ease-in-out_infinite_alternate]" : undefined}>
-                    <g transform="translate(34,262) scale(1.1)">
+                    <g transform="translate(13,262) scale(1.1)">
                       <ellipse cx="160" cy="258" rx="150" ry="11" fill="#1c0a10" fillOpacity="0.22" />
                       <path d="M18 100 C 14 52, 72 14, 150 12 C 214 10, 258 44, 268 100 Z" fill={t.roof} />
                       {[
