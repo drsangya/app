@@ -5,6 +5,7 @@ import Marquee from "@/components/Marquee";
 import { MaskedLine, Reveal } from "@/components/Reveal";
 
 const MENU = [
+  { label: "Art & Painting", right: "Canvas", to: "/alter-ego/art" },
   { label: "Photography", right: "Frames", to: "/alter-ego/photography" },
   { label: "Illustration", right: "Drawings", to: "/alter-ego/illustrations" },
   { label: "Sketchbook", right: "Unfinished", to: "/alter-ego/sketchbook" },
