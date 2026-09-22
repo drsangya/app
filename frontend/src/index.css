@@ -180,7 +180,7 @@ html.lenis { height: auto; }
 }
 
 .marquee-track {
-  animation: marquee 46s linear infinite;
+  /* animated via requestAnimationFrame in Marquee.tsx for reliability across browsers/settings */
 }
 
 .jhumka-sway {
