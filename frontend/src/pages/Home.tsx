@@ -64,7 +64,7 @@ export default function Home() {
       <section className="relative flex min-h-screen items-center overflow-hidden pt-24">
         <div className="jali-bg absolute inset-0 opacity-70" aria-hidden="true" />
         <svg
-          className="pointer-events-none absolute left-0 top-0 hidden h-full w-[180px] lg:block"
+          className="pointer-events-none absolute left-0 top-0 hidden h-full w-[180px] xl:block"
           viewBox="0 0 200 900"
           preserveAspectRatio="none"
           aria-hidden="true"
@@ -96,7 +96,7 @@ export default function Home() {
               <MaskedLine delay={0.3} className="text-[4.5rem] sm:text-[7rem] lg:text-[8.5rem]">
                 <span className="text-outline-gold">TYAGI</span>
               </MaskedLine>
-              <MaskedLine delay={0.45} className="mt-4 font-editorial text-3xl text-linepink sm:text-4xl lg:text-[2.75rem]">
+              <MaskedLine delay={0.45} className="mt-8 font-editorial text-3xl text-linepink sm:text-4xl lg:text-[2.75rem]">
                 सज्ञा त्यागी
               </MaskedLine>
             </h1>
