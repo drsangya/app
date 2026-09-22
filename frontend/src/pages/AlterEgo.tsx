@@ -8,7 +8,6 @@ const MENU = [
   { label: "Photography", right: "Frames", to: "/alter-ego/photography" },
   { label: "Illustration", right: "Drawings", to: "/alter-ego/illustrations" },
   { label: "Sketchbook", right: "Unfinished", to: "/alter-ego/sketchbook" },
-  { label: "Kathak", right: "The First Art", to: "/alter-ego/kathak" },
 ];
 
 export default function AlterEgo() {

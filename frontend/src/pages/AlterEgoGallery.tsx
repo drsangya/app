@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
-import { X, Brush, Camera, PenTool, NotebookPen, Footprints } from "lucide-react";
+import { X, Brush, Camera, PenTool, NotebookPen } from "lucide-react";
 import Marquee from "@/components/Marquee";
 import { AutoBadge, ArchDivider, Jhumka } from "@/components/Ornaments";
 import { Reveal } from "@/components/Reveal";
 
-type GalleryType = "art" | "photography" | "illustrations" | "sketchbook" | "kathak";
+type GalleryType = "art" | "photography" | "illustrations" | "sketchbook";
 
 const GALLERIES: Record<
   GalleryType,
@@ -47,15 +47,6 @@ const GALLERIES: Record<
     accent: "#62BF9C",
     icon: NotebookPen,
     frames: ["Page 01", "Page 02", "Page 03", "Page 04", "Page 05", "Page 06"],
-  },
-  kathak: {
-    title: "Kathak",
-    hindi: "कथक",
-    tag: "The First Art",
-    note: "Before the paint and the pixels there was dance — spins, tatkaar, and stories told in eight counts.",
-    accent: "#FBBF24",
-    icon: Footprints,
-    frames: ["Piece 01", "Piece 02", "Piece 03", "Piece 04", "Piece 05", "Piece 06"],
   },
 };
 
